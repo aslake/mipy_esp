@@ -29,7 +29,7 @@ microchips with full TCP/IP stack and microcontroller capability.
 The **MiPy-ESP** code repository is a flexible framework for full-stack Python
 IoT projects on the ESP-family microcontrollers.
 
-The framework is developed by the **LeGarage Technical Comittee Software Developer Team** 
+The framework is developed by the **LeGarage Technical Comittee Software Developer Team**
 (LG-TC-SWDT01) aiming at replacing already established C++ based code for our microcontroller applications.
 The project provides basic features such as network connection procedures,
 access point webserver, MQTT functionalities, logging/debugging, event scheduling,
@@ -102,12 +102,12 @@ while maintaining chip network connections.
 
 ![alt text](./images/architecture.svg "Code flowchart")
 
-The microcontroller code attempts connection with known networks upon chip boot. 
-All previously connected network SSIDs are stored together with their encrypted passwords 
-in chip flash memory. Networks and passwords can also be provisioned to the chip by uploading 
-_wifi.json_ in the format {"SSID1":"PASSWORD1", "SSID2":"PASSWORD2"} to the chip. 
-These networks are stored and passwords encrypted before the file is deleted from memory. 
-Note - information to decrypt the passwords is available on the chip, so at least with physical 
+The microcontroller code attempts connection with known networks upon chip boot.
+All previously connected network SSIDs are stored together with their encrypted passwords
+in chip flash memory. Networks and passwords can also be provisioned to the chip by uploading
+_wifi.json_ in the format {"SSID1":"PASSWORD1", "SSID2":"PASSWORD2"} to the chip.
+These networks are stored and passwords encrypted before the file is deleted from memory.
+Note - information to decrypt the passwords is available on the chip, so at least with physical
 access to the chip the stored wifi passwords should be considered compromised.
 
 If no known networks are detected by the chip upon startup, an access point is broadcasted from the chip
@@ -132,12 +132,12 @@ Below is an exampe screenshot of a webpage served from the MiPy-ESP chip webserv
 
 ### Configuration
 A project specific configuration file _config.py_ belongs to the _main.py_ script.
-In the config file, global application parameters are set: level of debugging and 
-logger settings, access point name and password, MQTT client and broker settings, 
+In the config file, global application parameters are set: level of debugging and
+logger settings, access point name and password, MQTT client and broker settings,
 device name and framework version (git commit id) applied amongst other.
 It is generally reccommended to upload the _main.py_ and _config.py_ in readable
-.py format to the chip, in order to enable inspection of the main code and its 
-configuration in case of software upgrade or debugging of deployed hardware.   
+.py format to the chip, in order to enable inspection of the main code and its
+configuration in case of software upgrade or debugging of deployed hardware.
 
 
 ### Getting started
@@ -147,7 +147,7 @@ the ESP flash memory with the command:
 ```
 esptool.py --port /dev/ttyUSB0 erase_flash
 ```
- 
+
 Current project master branch of the repo has been tested and is operational with Micropython
 v.1.12
 
@@ -168,6 +168,7 @@ A terminal window based workflow for developing applications could be:
 * Develop application specific python modules as required
 * In order to reduce memory usage consider compiling .py source code into .mpy bytecode
   using the [mpy-cross compiler](https://github.com/micropython/micropython).
+  See the mipy_eps/Makefile.
 * Use rshell to transfer files to the microcontroller and run the files on the chip:
 
 ```
