@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Wifi login page">
+    <meta name="author" content="Aslak Einbu">
+    <title>Hovedside</title>
+    <!--<link rel="stylesheet" href="nanogram.min.css">-->
+</head>
+
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+</style>
+
+<body>
+
+<div class='container'>     
+<h1><strong>OPPKOBLING AV CHIP TIL WIFI</strong></h1>
+<hr>
+<br>
+<h3>Velg blant synlige nettverk:</h3>
+
+<form id="ssidpwd" action="kobletil" method="get">
+  <table>
+    <thead>
+      <tr>
+        <!--<th>SSID</th>-->
+        <!--<th>Kanal</th>-->
+        <!--<th>Signal</th>-->
+        <!--<th>Kryptering</th>-->
+      </tr>
+    </thead>
+    <tbody id="tabell">
+    </tbody>
+  </table>
+  <br> 
+
+  <div class="row">
+    <div class="column column-25"><input class="button" type="button" onclick="window.location.href = 'rescan';" value="SCAN PÅ NYTT"/></div>
+</div>
+
+  <div class="row">
+    <h3><div class="column column-25">Eller angi nettverk her:<input name="ssid" placeholder="SSID inn her..." type="text" /></div></h3>
+  </div>
+
+  <hr>
+
+  <div class="row">
+      <h3> <div class="column column-25">Passord for valgt nettverk:<input name="password" placeholder="Passord inn her..." type="password" /></div></h3>
+  </div>
+
+<div class="row">
+    <div class="column column-25">
+        <input id="knapp" class="button" onclick="vismelding()" type="submit" value="KOBLE CHIP TIL ANGITT NETTVERK"/>
+        <br>
+        <br>
+        <h3 style="color:red;" id="demo"></h3>
+    </div>
+</div>
+
+</form>
+
+</div>
+
+<script src="microajax.js"></script> 
+
+<script>
+microAjax('networks_detected.json', function(result) {
+            var j = JSON.parse(result);
+            var html = "";
+            for (var key in j){
+                html = html + "<td><input type='checkbox' name='ssid' value="
+                       + key + "/>" + key + "</td><td>"
+                   //                       + j[key][0] + "</td><td>"
+                   //    + j[key][1] + "</td><td>"
+                   //    + j[key][2] + "</td><td>"
+                       + "</td></tr>";
+            }
+            document.getElementById('tabell').innerHTML = html ;
+            });
+
+function vismelding() {
+    document.getElementById("demo").innerHTML = "Forsøker å koble til wifi!";
+            };
+
+</script>
+
+</body>
+
+</html>
