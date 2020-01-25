@@ -4,11 +4,13 @@
 
 [![Followers](https://img.shields.io/badge/Version-v.1.00-silver)](https://bitbucket.org/Legarage/micropython_webserver/src/master/)
 [![Developers](https://img.shields.io/badge/Dev_Team-Bluebell_Buggers-blue)](https://www.yr.no/sted/Norge/Tr%C3%B8ndelag/Trondheim/Bl%C3%A5klokkevegen/time_for_time.html)
+[![Developers](https://img.shields.io/github/languages/code-size/aslake/mipy_esp)]()
 [![Framework](https://img.shields.io/badge/Micropython-v.1.12-darkgreen)](https://github.com/micropython/micropython)
 [![Platform](https://img.shields.io/badge/Tested_on-ESP8266-darkgreen)](https://www.espressif.com/en/products/hardware/esp8266ex/overview)
 [![Platform](https://img.shields.io/badge/Tested_on-ESP32-darkgreen)](https://www.espressif.com/en/products/hardware/esp32/overview)
+[![Platform](https://img.shields.io/github/issues/aslake/mipy_esp)](https://github.com/aslake/mipy_esp/issues)
 [![Deployments](https://img.shields.io/badge/Deployments-4-green)](https://legarage.wordpress.com/)
-[![Followers](https://img.shields.io/badge/Followers-2-green)](https://en.wikipedia.org/wiki/Fan_club)
+[![Followers](https://img.shields.io/github/followers/aslake?style=social)](https://en.wikipedia.org/wiki/Fan_club)
 
 
 ### Background
