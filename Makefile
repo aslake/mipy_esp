@@ -59,4 +59,4 @@ clean: ## Remove build folder
 	@echo Build folder erased.
 
 
-.PHONY: build erase_flash cleann
+.PHONY: build erase_chip flash_chip clean
