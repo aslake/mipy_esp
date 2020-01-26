@@ -1,3 +1,4 @@
+<meta name="google-site-verification" content="google9bfb406d215b1cc9.html">
 ![alt text](./images/mipyesp_logo.svg "AP webserver screenshot" )
 
 ##### - a basic MicroPython framework for microcontroller IoT projects!
