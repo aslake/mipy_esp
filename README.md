@@ -2,7 +2,7 @@
 
 ##### - a basic MicroPython framework for microcontroller IoT projects!
 
-[![Followers](https://img.shields.io/badge/Version-v.1.00-silver)](https://bitbucket.org/Legarage/micropython_webserver/src/master/)
+[![Followers](https://img.shields.io/badge/Version-v.1.01-silver)](https://bitbucket.org/Legarage/micropython_webserver/src/master/)
 [![Developers](https://img.shields.io/badge/Dev_Team-Bluebell_Buggers-blue)](https://www.yr.no/sted/Norge/Tr%C3%B8ndelag/Trondheim/Bl%C3%A5klokkevegen/time_for_time.html)
 [![Developers](https://img.shields.io/github/languages/code-size/aslake/mipy_esp)]()
 [![Framework](https://img.shields.io/badge/Micropython-v.1.12-darkgreen)](https://github.com/micropython/micropython)
@@ -30,7 +30,9 @@ The **MiPy-ESP** code repository is a flexible framework for full-stack Python
 IoT projects on the ESP-family microcontrollers.
 
 The framework is developed by the **LeGarage Technical Comittee Software Developer Team**
-(LG-TC-SWDT01) aiming at replacing already established C++ based code for our microcontroller applications.
+([LG-TC-SWDT-01](https://legarage.wordpress.com/)) aiming at replacing already established 
+C++ based code for our microcontroller applications.
+
 The project provides basic features such as network connection procedures,
 access point webserver, MQTT functionalities, logging/debugging, event scheduling,
 hardware I/O and global configuration.
@@ -98,7 +100,7 @@ Upon chip startup, the code attempts connection to wifi.
 When a connection is established, callbacks and jobs are set up and
 MQTT-client connects to a remote broker. The code then goes into a main loop, which
 serves hardware I/O, job events, MQTT subscriptions
-while maintaining chip network connections.
+while maintaining chip network and MQTT broker connections.
 
 ![alt text](./images/architecture.svg "Code flowchart")
 

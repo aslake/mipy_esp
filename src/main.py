@@ -61,18 +61,27 @@ def callback_mqtt_subscription(topic, msg):
 
 
 def mqtt_subscriptions():
-    """ Subscribe to MQTT topics. """
-    log.debug("Subscribing to topic 'test'")
-    mqtt_client.subscribe("test")
+     """ Subscribe to MQTT topics. """
+     log.info("Subscribing to topic 'test'")
+     if mqtt_client.subscribe("test") == "Error":
+         log.error("Could not subscribe - broker down?")
 
 
 def mqtt_connect():
     """ Connect to MQTT broker """
     mqtt_client.set_callback(callback_mqtt_subscription)
-    mqtt_client.connect()
-    log.info('Connected to %s MQTT broker ' % config.mqtt_broker)
-    mqtt_subscriptions()
-    return mqtt_client
+    if mqtt_client.connect() == "Error":
+        log.error("Could not connect - broker down?")
+    else:
+        log.info('Connected to %s MQTT broker ' % config.mqtt_broker)
+        mqtt_subscriptions()
+        return mqtt_client
+
+
+def mqtt_publish(topic, message):
+    if mqtt_client.publish(topic,message) == "Error":
+        log.error("Could not publish - broker down?")
+
 
 
 # Prepares for main loop:
@@ -82,10 +91,10 @@ mqtt_connect()
 
 # Jobs:
 def melding1():
-    mqtt_client.publish("test", "%s : Sender melding!" % str(logfile._timestamp()) )
+    mqtt_publish("test", "%s : Sender melding!" % str(logfile._timestamp()) )
 
 def heartbeat():
-    mqtt_client.publish("/esp8266/%s/heartbeat" % config.device_name, config.heartbeat_message)
+    mqtt_publish("/esp8266/%s/heartbeat" % config.device_name, config.heartbeat_message)
 
 
 # Setting scheduled jobs
@@ -102,7 +111,9 @@ schedule = Scheduler("Test program",
 while True:
     if wifi.wlan_sta.isconnected():
         # Loop events when connected to wifi:
-        mqtt_client.check_msg()
+        if mqtt_client.check_msg() == "Error":
+            log.error("No connection to MQTT broker - attempting reconnect...")
+            mqtt_connect()
         utime.sleep(0.1)
         schedule.follow_up_jobs()
     else:
