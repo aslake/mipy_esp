@@ -195,7 +195,7 @@ The project is work in progress. The software is provided "as is", without warra
 No deadlines exist for the development, but plenty of IoT deployments are in the pipeline...
 
 Complete repository [issue tracker](https://bitbucket.org/Legarage/micropython_webserver/issues)
-can be found in the Bitbucket repository.
+can be found in the GitHub repository.
 
 
 ### Resources, credits and inspiration
