@@ -92,7 +92,8 @@ src
 │   └── wifi.py               # Network connection module
 │ 
 ├── utilities                 # OPTIONAL UTILITY MODULES
-│   └─── timers.py            # Various timer utilities
+│   ├── outbox.py             # Buffering of MQTT upon lost network
+│   └── timers.py             # Various timer utilities
 │ 
 └── drivers                   # PROJECT SPECIFIC HARDWARE MODULES 
     │ 
