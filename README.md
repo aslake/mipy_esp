@@ -78,6 +78,7 @@ The repository folder structure below lists the current modules of the framework
     ├── main.py               # Main code loop
     ├── microajax.js          # Lightweight Javascript AJAX
     ├── nanogram.min.css      # Lightweight CSS framework
+    ├── outbox.py             # Buffering outgoing MQTT upon network
     ├── scheduler_light.py    # Lightweight event scheduler
     ├── tm1637.py             # Module for TM1637 4 digit led display
     ├── umqttsimple.py        # MQTT module
