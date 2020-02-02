@@ -35,7 +35,7 @@ C++ based code for our microcontroller applications.
 
 The project provides basic features such as network connection procedures,
 access point webserver, MQTT functionalities, logging/debugging, event scheduling,
-hardware I/O and global configuration.
+hardware I/O and global configuration. More detailed documentation can be found in [this](https://www.instructables.com/id/Getting-Started-With-Python-for-ESP8266-ESP32/) post on www.instructables.com.
 
 This software is gradually becoming the backbone of all our hobby electronics IoT projects
 involving ESP-family microcontrollers. The main development and testing was done on esp8266 boards.
