@@ -1,4 +1,4 @@
-SHELL := /bin/bash
+#SHELL := /bin/bash
 
 # MiPy-ESP MicroPython Microcontroller Basic Framework Makefile.
 #
@@ -9,29 +9,22 @@ SHELL := /bin/bash
 # https://github.com/espressif/esptool)
 
 
-build:	## Compile src .py files and move to /build
+build:	## Compile src .py files and move to build
 	@echo ----------------------------------------------------
 	@echo - Prepare for chip upload  -
 	@echo ----------------------------------------------------
 	@mkdir -p build                                  
+	@cp src/core/*.* build
+	@cp src/*.* build
+	@rm build/main.py
+	@rm build/config.py
 	@echo Compiles .py files to .mpy:
-	@for f in src/*.py; do mpy-cross $$f; echo "    cp $$f"; done;    
-	@rm src/main.mpy
-	@rm src/boot.mpy
-	@rm src/config.mpy
-	@mv src/*.mpy build
-	@echo Moved all compiled .mpy files to build.
-	@cp src/main.py build
+	@for f in build/*.py; do mpy-cross $$f; echo "    mpy-cross $$f"; done;    
+	@rm build/*.py
 	@cp src/config.py build
-	@cp src/boot.py build
-	@echo Copied main.py, config.py and boot.py to build.
-	@echo Copy html, ccs, js and json files to build:
-	@for f in src/*.html; do cp $$f build; echo "  cp" $$f; done;
-	@for f in src/*.css; do cp $$f build; echo "  cp" $$f; done;
-	@for f in src/*.js; do cp $$f build; echo "  cp" $$f; done;
-	@for f in src/*.json; do cp $$f build; echo "  cp" $$f; done;
+	@cp src/main.py build
 	@echo ----------------------------------------------------
-	@echo Files in build ready for upload to chip:
+	@echo Project files in build compiled and ready for upload to chip:
 	@tree -sh build
 
 
